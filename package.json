@@ -2,7 +2,7 @@
   "name": "circles",
   "version": "1.1.2",
   "description": "canvas app for demonstrating circles spin",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "postinstall": "npm install -g bower && bower cache clean && bower install"
