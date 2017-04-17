@@ -4,7 +4,7 @@
   "description": "canvas app for demonstrating circles spin",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js, npm install -g bower, bower install"
+    "start": "node app.js && npm install -g bower && bower install"
   },
   "repository": {
     "type": "git",
