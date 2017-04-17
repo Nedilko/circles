@@ -2,7 +2,7 @@
   "name": "circles",
   "version": "1.1.2",
   "description": "canvas app for demonstrating circles spin",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "node app.js"
   },
