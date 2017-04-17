@@ -1,0 +1,5 @@
+language: node_js
+notofocations:
+  email: false
+node_js:
+  - "6"
