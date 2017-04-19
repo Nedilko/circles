@@ -28,13 +28,18 @@
      * Circle instance
      * @constructor
      * @this {Circle}
-     * @param {number} x     x-ccordinate of circle
-     * @param {number} y     y-ccordinate of circle
-     * @param {number} r     radius of circle
-     * @param {number} n     number of sectors
-     * @param {number} start start position number
+     * @param {number}  x           x-ccordinate of circle
+     * @param {number}  y           y-ccordinate of circle
+     * @param {number}  r           radius of circle
+     * @param {number}  n           number of sectors
+     * @param {number}  start       start position number
+     * @param {text}    color       color of circle
+     * @param {number}  direction   1 CC; -1 CCW
+     * @param {angle}   angle       circle angle
+     * @param {number}  speed       speed of spining
+     * @param {number}  spins       number of full spins
      */
-    function Circle(x, y, r, n, start, color, direction, angle, speed) {
+    function Circle(x, y, r, n, start, color, direction, angle, speed, spins) {
 
         this.x = x;
         this.y = y;
@@ -53,6 +58,8 @@
         this.speed = speed;
 
         this.spinning = false;
+
+        this.spins = spins;
 
     }
 
@@ -123,10 +130,10 @@
         //main circles array
         var circles = [];
 
-        circles.push(new Circle(300, 300, 150, 33, 21, '#A67EFF', -1, 0, 0.8));
-        circles.push(new Circle(300, 300, 110, 20, 13, '#CC853C', 1, 0, 1.5));
-        circles.push(new Circle(300, 300, 80, 12, 7, '#65FF79', -1, 0, 2));
-        circles.push(new Circle(300, 300, 50, 6, 1, '#EDEDED', 1, 0, 1));
+        circles.push(new Circle(300, 300, 150,  33, 21, '#A67EFF', -1,  0, 0.8, 1));
+        circles.push(new Circle(300, 300, 110,  20, 13, '#CC853C', 1,   0, 1.5, 1));
+        circles.push(new Circle(300, 300, 80,   12, 7,  '#65FF79', -1,  0, 2,   1));
+        circles.push(new Circle(300, 300, 50,   6,  1,  '#EDEDED', 1,   0, 0.5, 1));
 
 
         function showInfo(){
