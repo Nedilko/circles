@@ -18,3 +18,9 @@
 #info > div > textarea {
     position: absolute;
 }
+
+#spin {
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+}

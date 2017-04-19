@@ -1,7 +1,7 @@
 (function(){
     var ctx,
-        boardWidth = 600,
-        boardHeight = 500,
+        boardWidth = 400,
+        boardHeight = 400,
         circleStrokeColor = '#777777',
         startStep;
 
@@ -38,8 +38,9 @@
      * @param {angle}   angle       circle angle
      * @param {number}  speed       speed of spining
      * @param {number}  spins       number of full spins
+     * @param {font}    font        font size and family
      */
-    function Circle(x, y, r, n, start, color, direction, angle, speed, spins) {
+    function Circle(x, y, r, n, start, color, direction, angle, speed, spins, font) {
 
         this.x = x;
         this.y = y;
@@ -52,14 +53,14 @@
 
         this.color = color;
 
-        // direction: 1 - CW, -1 - CCW
         this.direction = direction;
 
         this.speed = speed;
 
         this.spinning = false;
-
         this.spins = spins;
+
+        this.font = font;
 
     }
 
@@ -92,7 +93,7 @@
             ctx.save();
             ctx.translate(this.x, this.y);
             ctx.rotate(getRadians(this.angle + i*360/this.n + 86 + 180/this.n));
-            ctx.font = "20px serif";
+            ctx.font = this.font;
             ctx.fillStyle = "#000000";
             ctx.textAlign = "left";
             ctx.fillText(i+this.start, 0, -(this.r - 20));
@@ -130,10 +131,10 @@
         //main circles array
         var circles = [];
 
-        circles.push(new Circle(300, 300, 150,  33, 21, '#A67EFF', -1,  0, 0.8, 1));
-        circles.push(new Circle(300, 300, 110,  20, 13, '#CC853C', 1,   0, 1.5, 1));
-        circles.push(new Circle(300, 300, 80,   12, 7,  '#65FF79', -1,  0, 2,   1));
-        circles.push(new Circle(300, 300, 50,   6,  1,  '#EDEDED', 1,   0, 0.5, 1));
+        circles.push(new Circle(200, 200, 150,  33, 21, '#A67EFF', -1,  0, 0.8, 1,  "14px serif"));
+        circles.push(new Circle(200, 200, 110,  20, 13, '#CC853C', 1,   0, 1.5, 1,  "16px serif"));
+        circles.push(new Circle(200, 200, 80,   12, 7,  '#65FF79', -1,  0, 2,   1,  "18px serif"));
+        circles.push(new Circle(200, 200, 50,   6,  1,  '#EDEDED', 1,   0, 4.1, 2,  "20px serif"));
 
 
         function showInfo(){
@@ -146,31 +147,11 @@
 
         drawAll(circles);
 
-        $('#plus').click(function(){
-            circles[0].angle++;
-            $("#angle1").text(roundPlus(circles[0].angle, 2));
-
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, 0, boardWidth, boardHeight);
-
-            circles[0].draw();
-        });
-
-        $('#minus').click(function(){
-            circles[0].angle--;
-            $("#angle1").text(roundPlus(circles[0].angle, 2));
-
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, 0, boardWidth, boardHeight);
-
-            circles[0].draw();
-        });
-
         function step(){
             var cancel = 0;
             for(var i = 0; i < circles.length; i++) {
 
-                if((circles[i].angle < 360)&&(circles[i].angle > -360)) {
+                if((circles[i].angle < 360*circles[i].spins)&&(circles[i].angle > -360*circles[i].spins)) {
                         circles[i].angle += circles[i].speed * circles[i].direction;
                    } else {
                        if(circles[i].spinning === true) {
