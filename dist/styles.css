@@ -3,3 +3,18 @@
 	border: 1px solid black;
     cursor: default;
 }
+
+#info {
+	display: inline-block;
+    position: absolute;
+    margin-left: 10px;
+    width: 100px;
+}
+
+#info > div {
+    margin-top: 2px;
+}
+
+#info > div > textarea {
+    position: absolute;
+}

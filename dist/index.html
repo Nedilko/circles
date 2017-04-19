@@ -4,10 +4,34 @@
     <meta charset="UTF-8">
     <title>circles</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="./script.js"></script>
 </head>
 <body>
     <canvas id='Board'>circles</canvas>
+    <div id="info">
+        <span>Circle info</span>
+        <div>
+            <label for="angle1">#1 angle</label>
+            <textarea name="angle1" id="angle1" cols="4" rows="1" readonly></textarea>
+        </div>
+        <div>
+            <label for="angle2">#2 angle</label>
+            <textarea name="angle2" id="angle2" cols="4" rows="1" readonly></textarea>
+        </div>
+        <div>
+            <label for="angle3">#3 angle</label>
+            <textarea name="angle3" id="angle3" cols="4" rows="1" readonly></textarea>
+        </div>
+        <div>
+            <label for="angle4">#4 angle</label>
+            <textarea name="angle4" id="angle4" cols="4" rows="1" readonly></textarea>
+        </div>
+    </div>
+    <div class="controls">
+        <button id="plus">plus</button>
+        <button id="minus">minus</button>
+        <button id="spin">spin</button>
+    </div>
 </body>
 </html>
