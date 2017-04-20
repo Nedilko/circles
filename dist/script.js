@@ -2,7 +2,7 @@
     var ctx,
         boardWidth = 400,
         boardHeight = 400,
-        circleStrokeColor = '#777777',
+        circleStrokeColor = '#555555',
         startStep;
 
     /**
@@ -72,6 +72,10 @@
         return this.angle;
     };
 
+    Circle.prototype.setStart = function(start){
+        this.start = start;
+    };
+
     Circle.prototype.draw = function(){
 
         ctx.fillStyle = this.color;
@@ -131,9 +135,9 @@
         //main circles array
         var circles = [];
 
-        circles.push(new Circle(200, 200, 150,  33, 21, '#A67EFF', -1,  0, 0.8, 1,  "14px serif"));
-        circles.push(new Circle(200, 200, 110,  20, 13, '#CC853C', 1,   0, 1.5, 1,  "16px serif"));
-        circles.push(new Circle(200, 200, 80,   12, 7,  '#65FF79', -1,  0, 2,   1,  "18px serif"));
+        circles.push(new Circle(200, 200, 150,  33, 39, '#CC2115', -1,  0, 0.8, 1,  "14px serif"));
+        circles.push(new Circle(200, 200, 110,  20, 19, '#297F48', 1,   0, 1.5, 1,  "16px serif"));
+        circles.push(new Circle(200, 200, 80,   12, 7,  '#FEFFB6', -1,  0, 2,   1,  "18px serif"));
         circles.push(new Circle(200, 200, 50,   6,  1,  '#EDEDED', 1,   0, 4.1, 2,  "20px serif"));
 
 
@@ -185,6 +189,27 @@
             });
 
             startStep = requestAnimationFrame(step);
+        });
+
+        $('#stop').click(function(){
+            circles.forEach(function(item){
+                item.spinning = false;
+            });
+
+            cancelAnimationFrame(startStep);
+        });
+
+        $('#circle1-start').change(function(){
+            console.log($(this).val());
+            circles[3].setStart(parseInt($(this).val()));
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, boardWidth, boardHeight);
+            drawAll(circles);
+        });
+
+        $('#test').click(function(){
+            circles[3].n = 12;
+            drawAll(circles);
         });
 
     });

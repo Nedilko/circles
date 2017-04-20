@@ -11,25 +11,64 @@
     <canvas id='Board'>circles</canvas>
     <div id="info">
         <span>Circle info</span>
+
         <div>
-            <label for="angle1">#1 angle</label>
-            <textarea name="angle1" id="angle1" cols="4" rows="1" readonly></textarea>
+            <div class="circle-numbers">
+                <label for="circle1_start">start</label>
+                <input type="number" id="circle1-start" name="circle1_start" value="1" min="1" max="99" step="1">
+                <label for="circle1_number">number</label>
+                <input type="number" id="circle1-number" name="circle1_number" value="6" min="2" max="12" step="1">
+                <label for="angle1">angle</label>
+                <textarea name="angle1" id="angle1" cols="4" rows="1" readonly></textarea>
+            </div>
+            <span class="circle-name">circle 1</span>
         </div>
+
         <div>
-            <label for="angle2">#2 angle</label>
-            <textarea name="angle2" id="angle2" cols="4" rows="1" readonly></textarea>
+            <div class="circle-numbers">
+                <label for="circle2_start">start</label>
+                <input type="number" id="circle2-start" name="circle2_start" value="7" min="1" max="99" step="1">
+                <label for="circle2_number">number</label>
+                <input type="number" id="circle2-number" name="circle2_number" value="12" min="2" max="20" step="1">
+                <label for="angle2">#2 angle</label>
+                <textarea name="angle2" id="angle2" cols="4" rows="1" readonly></textarea>
+            </div>
+            <span class="circle-name">circle 2</span>
         </div>
+
         <div>
-            <label for="angle3">#3 angle</label>
-            <textarea name="angle3" id="angle3" cols="4" rows="1" readonly></textarea>
+            <div class="circle-numbers">
+                <label for="circle3_start">start</label>
+                <input type="number" id="circle3-start" name="circle3_start" value="19" min="1" max="99" step="1">
+                <label for="circle3_number">number</label>
+                <input type="number" id="circle3-number" name="circle3_number" value="20" min="2" max="30" step="1">
+                <label for="angle3">#3 angle</label>
+                <textarea name="angle3" id="angle3" cols="4" rows="1" readonly></textarea>
+            </div>
+            <span class="circle-name">circle 3</span>
         </div>
+
         <div>
-            <label for="angle4">#4 angle</label>
-            <textarea name="angle4" id="angle4" cols="4" rows="1" readonly></textarea>
+            <div class="circle-numbers">
+                <label for="circle4_start">start</label>
+                <input type="number" id="circle4-start" name="circle4_start" value="39" min="1" max="99" step="1">
+                <label for="circle4_number">number</label>
+                <input type="number" id="circle4-number" name="circle4_number" value="33" min="2" max="40" step="1">
+                <label for="angle4">#4 angle</label>
+                <textarea name="angle4" id="angle4" cols="4" rows="1" readonly></textarea>
+            </div>
+            <span class="circle-name">circle 4</span>
         </div>
+
+        <label class="switch">
+          <input type="checkbox">
+          <div class="slider round"></div>
+        </label>
     </div>
-    <div class="controls">
-        <button id="spin">spin</button>
+    <div id="controls">
+        <div id="spin" class="btn">spin</div>
+        <div id="stop" class="btn btn-red">stop</div>
+        <div id="test" class="btn btn-yellow">test</div>
     </div>
 </body>
 </html>
