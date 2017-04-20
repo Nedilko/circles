@@ -13,62 +13,83 @@
         <span>Circle info</span>
 
         <div>
-            <div class="circle-numbers">
+            <div class="circle-numbers" id="circle1-numbers">
                 <label for="circle1_start">start</label>
                 <input type="number" id="circle1-start" name="circle1_start" value="1" min="1" max="99" step="1">
                 <label for="circle1_number">number</label>
                 <input type="number" id="circle1-number" name="circle1_number" value="6" min="2" max="12" step="1">
-                <label for="angle1">angle</label>
-                <textarea name="angle1" id="angle1" cols="4" rows="1" readonly></textarea>
+                <label class="switch">
+                  <input type="checkbox" id="circle1-direction">
+                  <div class="slider round"></div>
+                </label>
+                <label for="circle1_speed">speed</label>
+                <input type="number" id="circle1-speed" name="circle1_speed" value="4.1" min="0.2" max="10" step="0.1">
+                <label for="circle1_spins">spins</label>
+                <input type="number" id="circle1-spins" name="circle1_spins" value="2" min="1" max="10" step="0.2">
             </div>
-            <span class="circle-name">circle 1</span>
+            <span class="circle-name">circle 1<span id="circle1-caption"></span></span>
         </div>
 
         <div>
-            <div class="circle-numbers">
+            <div class="circle-numbers" id="circle2-numbers">
                 <label for="circle2_start">start</label>
                 <input type="number" id="circle2-start" name="circle2_start" value="7" min="1" max="99" step="1">
                 <label for="circle2_number">number</label>
                 <input type="number" id="circle2-number" name="circle2_number" value="12" min="2" max="20" step="1">
-                <label for="angle2">#2 angle</label>
-                <textarea name="angle2" id="angle2" cols="4" rows="1" readonly></textarea>
+                <label class="switch">
+                  <input type="checkbox" id="circle2-direction">
+                  <div class="slider round"></div>
+                </label>
+                <label for="circle2_speed">speed</label>
+                <input type="number" id="circle2-speed" name="circle2_speed" value="2" min="0.2" max="10" step="0.1">
+                <label for="circle2_spins">spins</label>
+                <input type="number" id="circle2-spins" name="circle2_spins" value="1" min="1" max="10" step="0.2">
             </div>
-            <span class="circle-name">circle 2</span>
+            <span class="circle-name">circle 2<span id="circle2-caption"></span></span>
         </div>
 
         <div>
-            <div class="circle-numbers">
+            <div class="circle-numbers" id="circle3-numbers">
                 <label for="circle3_start">start</label>
                 <input type="number" id="circle3-start" name="circle3_start" value="19" min="1" max="99" step="1">
                 <label for="circle3_number">number</label>
                 <input type="number" id="circle3-number" name="circle3_number" value="20" min="2" max="30" step="1">
-                <label for="angle3">#3 angle</label>
-                <textarea name="angle3" id="angle3" cols="4" rows="1" readonly></textarea>
+                <label class="switch">
+                  <input type="checkbox" id="circle3-direction">
+                  <div class="slider round"></div>
+                </label>
+                <label for="circle3_speed">speed</label>
+                <input type="number" id="circle3-speed" name="circle3_speed" value="1.5" min="0.2" max="10" step="0.1">
+                <label for="circle3_spins">spins</label>
+                <input type="number" id="circle3-spins" name="circle3_spins" value="1" min="1" max="10" step="0.2">
             </div>
-            <span class="circle-name">circle 3</span>
+            <span class="circle-name">circle 3<span id="circle3-caption"></span></span>
         </div>
 
         <div>
-            <div class="circle-numbers">
+            <div class="circle-numbers" id="circle4-numbers">
                 <label for="circle4_start">start</label>
                 <input type="number" id="circle4-start" name="circle4_start" value="39" min="1" max="99" step="1">
                 <label for="circle4_number">number</label>
                 <input type="number" id="circle4-number" name="circle4_number" value="33" min="2" max="40" step="1">
-                <label for="angle4">#4 angle</label>
-                <textarea name="angle4" id="angle4" cols="4" rows="1" readonly></textarea>
+                <label class="switch">
+                  <input type="checkbox" id="circle4-direction">
+                  <div class="slider round"></div>
+                </label>
+                <label for="circle4_speed">speed</label>
+                <input type="number" id="circle4-speed" name="circle4_speed" value="0.8" min="0.2" max="10" step="0.1">
+                <label for="circle4_spins">spins</label>
+                <input type="number" id="circle4-spins" name="circle4_spins" value="1" min="1" max="10" step="0.2">
             </div>
-            <span class="circle-name">circle 4</span>
+            <span class="circle-name">circle 4<span id="circle4-caption"></span></span>
         </div>
 
-        <label class="switch">
-          <input type="checkbox">
-          <div class="slider round"></div>
-        </label>
+
     </div>
     <div id="controls">
         <div id="spin" class="btn">spin</div>
         <div id="stop" class="btn btn-red">stop</div>
-        <div id="test" class="btn btn-yellow">test</div>
+        <div id="reset" class="btn btn-yellow">reset</div>
     </div>
 </body>
 </html>

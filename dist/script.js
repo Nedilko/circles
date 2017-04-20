@@ -80,6 +80,18 @@
         this.n = number;
     };
 
+    Circle.prototype.setSpeed = function(speed){
+        this.speed = speed;
+    };
+
+    Circle.prototype.setSpins = function(spins){
+        this.spins = spins;
+    };
+
+    Circle.prototype.setDirection = function(direction){
+        this.direction = direction;
+    };
+
     Circle.prototype.draw = function(){
 
         ctx.fillStyle = this.color;
@@ -141,19 +153,29 @@
 
         circles.push(new Circle(200, 200, 150,  33, 39, '#CC2115', -1,  0, 0.8, 1,  "14px serif"));
         circles.push(new Circle(200, 200, 110,  20, 19, '#297F48', 1,   0, 1.5, 1,  "16px serif"));
-        circles.push(new Circle(200, 200, 80,   12, 7,  '#FEFFB6', -1,  0, 2,   1,  "18px serif"));
-        circles.push(new Circle(200, 200, 50,   6,  1,  '#EDEDED', 1,   0, 4.1, 2,  "20px serif"));
-
-
-        function showInfo(){
-            for(var i = 0; i < circles.length; i++){
-                $("#angle"+(i+1)).text(roundPlus(circles[i].angle, 2));
-            }
-        };
-
-        showInfo();
+        circles.push(new Circle(200, 200, 80,   12, 7,  '#3D66E0', -1,  0, 2,   1,  "18px serif"));
+        circles.push(new Circle(200, 200, 50,   6,  1,  '#0ADBFF', 1,   0, 5.1, 2,  "20px serif"));
 
         drawAll(circles);
+
+        function showInfo(arr){
+            arr.forEach(function(item, i){
+                var elem = arr.length - 1 - i;
+                $('#circle'+(i+1)+'-start').val(arr[elem].start);
+                $('#circle'+(i+1)+'-number').val(arr[elem].n);
+                $('#circle'+(i+1)+'-speed').val(arr[elem].speed);
+                $('#circle'+(i+1)+'-spins').val(arr[elem].spins);
+                if(arr[elem].direction === 1){
+                    $('#circle'+(i+1)+'-direction').prop('checked', true);
+                } else {
+                    $('#circle'+(i+1)+'-direction').prop('checked', false);
+                };
+                $('#circle'+(i+1)+'-caption').css("background-color",arr[elem].color);
+                $('#circle'+(i+1)+'-numbers').css("border-left-color",arr[elem].color);
+            });
+        };
+
+        showInfo(circles);
 
         function step(){
             var cancel = 0;
@@ -170,10 +192,16 @@
 
                 if(cancel === 4){
                     cancelAnimationFrame(startStep);
+
+                    circles.forEach(function(item){
+                        item.spinning = false;
+                    });
+
+                    circles.forEach(function(item){
+                        item.setAngle(0);
+                    });
                 }
             };
-
-            showInfo();
 
             ctx.fillStyle = '#FFFFFF';
             ctx.fillRect(0, 0, boardWidth, boardHeight);
@@ -183,79 +211,79 @@
             startStep = requestAnimationFrame(step);
         };
 
+        function isSpinning(item){
+            return item.spinning;
+        }
+
         $('#spin').click(function(){
+            if(!circles.some(isSpinning)) {
+                circles.forEach(function(item){
+                    item.spinning = true;
+                });
+
+                startStep = requestAnimationFrame(step);
+               }
+        });
+
+        $('#stop').click(function(){
+            if(circles.some(isSpinning)){
+                circles.forEach(function(item){
+                    item.spinning = false;
+                });
+
+                cancelAnimationFrame(startStep);
+               }
+        });
+
+        $('#reset').click(function(){
             circles.forEach(function(item){
-                item.spinning = true;
+                item.spinning = false;
             });
 
             circles.forEach(function(item){
                 item.setAngle(0);
             });
 
-            startStep = requestAnimationFrame(step);
-        });
-
-        $('#stop').click(function(){
-            circles.forEach(function(item){
-                item.spinning = false;
-            });
-
             cancelAnimationFrame(startStep);
-        });
 
-
-        $('#circle1-start').bind('keyup input',function(){
-            circles[3].setStart(parseInt($(this).val()));
             ctx.fillStyle = '#FFFFFF';
             ctx.fillRect(0, 0, boardWidth, boardHeight);
-            drawAll(circles);
-        });
-        $('#circle1-number').bind('keyup input',function(){
-            circles[3].setNumber(parseInt($(this).val()));
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, 0, boardWidth, boardHeight);
+
             drawAll(circles);
         });
 
-        $('#circle2-start').bind('keyup input',function(){
-            circles[2].setStart(parseInt($(this).val()));
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, 0, boardWidth, boardHeight);
-            drawAll(circles);
-        });
-        $('#circle2-number').bind('keyup input',function(){
-            circles[2].setNumber(parseInt($(this).val()));
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, 0, boardWidth, boardHeight);
-            drawAll(circles);
-        });
+        function bindInputs(arr){
+            arr.forEach(function(item, i){
+                var elem = arr.length - 1 - i;
+                $('#circle'+(i+1)+'-start').bind('keyup input',function(){
+                    arr[elem].setStart(parseInt($(this).val()));
+                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillRect(0, 0, boardWidth, boardHeight);
+                    drawAll(circles);
+                });
+                $('#circle'+(i+1)+'-number').bind('keyup input',function(){
+                    arr[elem].setNumber(parseInt($(this).val()));
+                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillRect(0, 0, boardWidth, boardHeight);
+                    drawAll(circles);
+                });
+                $('#circle'+(i+1)+'-speed').bind('keyup input',function(){
+                    arr[elem].setSpeed(parseFloat($(this).val()));
+                });
+                $('#circle'+(i+1)+'-spins').bind('keyup input',function(){
+                    arr[elem].setSpins(parseFloat($(this).val()));
+                });
+                $('#circle'+(i+1)+'-direction').change(function(){
+                    if($(this).prop("checked")){
+                        circles[elem].setDirection(1);
+                    } else {
+                        circles[elem].setDirection(-1);
+                    };
+                });
+            });
+        }
 
-        $('#circle3-start').bind('keyup input',function(){
-            circles[1].setStart(parseInt($(this).val()));
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, 0, boardWidth, boardHeight);
-            drawAll(circles);
-        });
-        $('#circle3-number').bind('keyup input',function(){
-            circles[1].setNumber(parseInt($(this).val()));
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, 0, boardWidth, boardHeight);
-            drawAll(circles);
-        });
-
-        $('#circle4-start').bind('keyup input',function(){
-            circles[0].setStart(parseInt($(this).val()));
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, 0, boardWidth, boardHeight);
-            drawAll(circles);
-        });
-        $('#circle4-number').bind('keyup input',function(){
-            circles[0].setNumber(parseInt($(this).val()));
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, 0, boardWidth, boardHeight);
-            drawAll(circles);
-        });
-
+        bindInputs(circles);
 
     });
 
