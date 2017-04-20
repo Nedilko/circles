@@ -76,6 +76,10 @@
         this.start = start;
     };
 
+    Circle.prototype.setNumber = function(number){
+        this.n = number;
+    };
+
     Circle.prototype.draw = function(){
 
         ctx.fillStyle = this.color;
@@ -199,18 +203,59 @@
             cancelAnimationFrame(startStep);
         });
 
-        $('#circle1-start').change(function(){
-            console.log($(this).val());
+
+        $('#circle1-start').bind('keyup input',function(){
             circles[3].setStart(parseInt($(this).val()));
             ctx.fillStyle = '#FFFFFF';
             ctx.fillRect(0, 0, boardWidth, boardHeight);
             drawAll(circles);
         });
-
-        $('#test').click(function(){
-            circles[3].n = 12;
+        $('#circle1-number').bind('keyup input',function(){
+            circles[3].setNumber(parseInt($(this).val()));
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, boardWidth, boardHeight);
             drawAll(circles);
         });
+
+        $('#circle2-start').bind('keyup input',function(){
+            circles[2].setStart(parseInt($(this).val()));
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, boardWidth, boardHeight);
+            drawAll(circles);
+        });
+        $('#circle2-number').bind('keyup input',function(){
+            circles[2].setNumber(parseInt($(this).val()));
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, boardWidth, boardHeight);
+            drawAll(circles);
+        });
+
+        $('#circle3-start').bind('keyup input',function(){
+            circles[1].setStart(parseInt($(this).val()));
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, boardWidth, boardHeight);
+            drawAll(circles);
+        });
+        $('#circle3-number').bind('keyup input',function(){
+            circles[1].setNumber(parseInt($(this).val()));
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, boardWidth, boardHeight);
+            drawAll(circles);
+        });
+
+        $('#circle4-start').bind('keyup input',function(){
+            circles[0].setStart(parseInt($(this).val()));
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, boardWidth, boardHeight);
+            drawAll(circles);
+        });
+        $('#circle4-number').bind('keyup input',function(){
+            circles[0].setNumber(parseInt($(this).val()));
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, boardWidth, boardHeight);
+            drawAll(circles);
+        });
+
 
     });
 
