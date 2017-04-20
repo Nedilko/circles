@@ -284,7 +284,6 @@
         }
 
         bindInputs(circles);
-
     });
 
 
