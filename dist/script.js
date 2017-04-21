@@ -139,7 +139,7 @@
     circles.push(new Circle(200, 200, 50, 6, 1, '#0ADBFF', 1, 5.1, 2, '20px serif'))
 
     drawAll(circles)
-    lockArray.push([3, 10, 30, 50], [4, 9, 29, 55])
+    lockArray.push([3, 10, 30, 50], [4, 9, 29, 55], [6, 19, 25, 45])
 
     function showInfo (arr) {
       arr.forEach(function (item, i) {
