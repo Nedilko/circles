@@ -32,10 +32,9 @@
  * @param {text}    color       color of circle
  * @param {number}  direction   1 CC; -1 CCW
  * @param {number}  speed       speed of spining
- * @param {number}  spins       number of full spins
  * @param {font}    font        font size and family
  */
-  function Circle (x, y, r, n, start, color, direction, speed, spins, font) {
+  function Circle (x, y, r, n, start, color, direction, speed, font) {
     this.x = x
     this.y = y
     this.r = r
@@ -52,7 +51,6 @@
     this.speed = speed
 
     this.spinning = false
-    this.spins = spins
 
     this.font = font
   }
@@ -75,10 +73,6 @@
 
   Circle.prototype.setSpeed = function (speed) {
     this.speed = speed
-  }
-
-  Circle.prototype.setSpins = function (spins) {
-    this.spins = spins
   }
 
   Circle.prototype.setDirection = function (direction) {
@@ -153,7 +147,6 @@
         $('#circle' + (i + 1) + '-start').val(arr[elem].start)
         $('#circle' + (i + 1) + '-number').val(arr[elem].n)
         $('#circle' + (i + 1) + '-speed').val(arr[elem].speed)
-        $('#circle' + (i + 1) + '-spins').val(arr[elem].spins)
         if (arr[elem].direction === 1) {
           $('#circle' + (i + 1) + '-direction').prop('checked', true)
         } else {
@@ -169,7 +162,7 @@
     function step () {
       var cancel = 0
       for (let i = 0; i < circles.length; i++) {
-        if ((circles[i].angle < 360 * circles[i].spins) && (circles[i].angle > -360 * circles[i].spins)) {
+        if ((circles[i].angle < 360) && (circles[i].angle > -360)) {
           circles[i].angle += circles[i].speed * circles[i].direction
         } else {
           if (circles[i].spinning === true) {
@@ -257,9 +250,6 @@
         })
         $('#circle' + (i + 1) + '-speed').bind('keyup input', function () {
           arr[elem].setSpeed(parseFloat($(this).val()))
-        })
-        $('#circle' + (i + 1) + '-spins').bind('keyup input', function () {
-          arr[elem].setSpins(parseFloat($(this).val()))
         })
         $('#circle' + (i + 1) + '-direction').change(function () {
           if ($(this).prop('checked')) {
