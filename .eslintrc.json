@@ -1,0 +1,18 @@
+{
+    "extends": "standard",
+    "plugins": [
+        "import"
+    ],
+    "globals": {
+      "$": true,
+      "cancelAnimationFrame": true,
+      "requestAnimationFrame": true
+    },
+    "rules": {
+      "one-var": ["error", {
+        "initialized": "always",
+        "uninitialized": "always"
+      }],
+      "valid-jsdoc": "error"
+    }
+}
