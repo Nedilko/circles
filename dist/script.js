@@ -133,10 +133,10 @@
     ctx.canvas.width = boardWidth
     ctx.canvas.height = boardHeight
 
-    circles.push(new Circle(200, 200, 150, 33, 39, '#CC2115', -1, 0.8, 1, '14px serif'))
-    circles.push(new Circle(200, 200, 110, 20, 19, '#297F48', 1, 1.5, 1, '16px serif'))
-    circles.push(new Circle(200, 200, 80, 12, 7, '#3D66E0', -1, 2, 1, '18px serif'))
-    circles.push(new Circle(200, 200, 50, 6, 1, '#0ADBFF', 1, 5.1, 2, '20px serif'))
+    circles.push(new Circle(200, 200, 150, 33, 39, '#CC2115', -1, 0.8, '14px serif'))
+    circles.push(new Circle(200, 200, 110, 20, 19, '#297F48', 1, 1.5, '16px serif'))
+    circles.push(new Circle(200, 200, 80, 12, 7, '#3D66E0', -1, 2, '18px serif'))
+    circles.push(new Circle(200, 200, 50, 6, 1, '#0ADBFF', 1, 5.1, '20px serif'))
 
     drawAll(circles)
     lockArray.push([3, 10, 30, 50], [4, 9, 29, 55], [6, 19, 25, 45])
