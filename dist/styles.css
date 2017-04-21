@@ -1,201 +1,212 @@
 #Board {
-    display: inline-block;
-	border: 1px solid darkgrey;
-    cursor: default;
+  display: inline-block;
+  border: 1px solid darkgrey;
+  cursor: default;
 }
 
 #info {
-	display: inline-block;
-    position: absolute;
-    margin-left: 10px;
-    width: 200px;
-    border: 1px solid darkgrey;
-    padding: 5px;
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+  width: 200px;
+  border: 1px solid darkgrey;
+  padding: 5px;
 }
 
-#info > div {
-    margin-top: 2px;
+#info>div {
+  margin-top: 2px;
 }
 
-div > textarea {
-    position: absolute;
+div>textarea {
+  position: absolute;
 }
 
 #controls {
-    width: 400px;
-    text-align: center;
+  width: 400px;
+  text-align: center;
 }
 
 .circle-name {
-	display: block;
-    background: #ffffff;
-    width: 67px;
-    margin-left: 10px;
-    padding-left: 3px;
-    position: relative;
-    top: -96px;
+  display: block;
+  background: #ffffff;
+  width: 67px;
+  margin-left: 10px;
+  padding-left: 3px;
+  position: relative;
+  top: -96px;
 }
 
 .circle-numbers {
-	border: 1px solid darkgrey;
-    padding-top: 10px;
-    padding-left: 5px;
-    padding-bottom: 5px;
-    border-left-width: 3px;
+  border: 1px solid darkgrey;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  border-left-width: 3px;
 }
 
-#info > div:nth-child(2) {
-	margin-top: 10px;
+#info>div:nth-child(2) {
+  margin-top: 10px;
 }
 
-.circle-name > span {
-    content: '';
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    position: relative;
-    margin-left: 4px;
+.circle-name>span {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  position: relative;
+  margin-left: 4px;
 }
+
 
 /* The button */
+
 .btn {
-    display: inline-block;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    width: 100px;
-    height: 36px;
-    cursor: pointer;
-    margin: 10px;
-    border: none;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    font: normal 18px/34px Arial, Helvetica, sans-serif;
-    color: rgba(255,255,255,1);
-    text-align: center;
-    -o-text-overflow: clip;
-    text-overflow: clip;
-    letter-spacing: 1px;
-    background: rgba(0,103,178,1);
-    -webkit-transition: background-color 0.2s cubic-bezier(0.42, 0, 0.58, 1);
-    -moz-transition: background-color 0.2s cubic-bezier(0.42, 0, 0.58, 1);
-    -o-transition: background-color 0.2s cubic-bezier(0.42, 0, 0.58, 1);
-    transition: background-color 0.2s cubic-bezier(0.42, 0, 0.58, 1);
-    -webkit-transform-origin: 0 0 0;
-    transform-origin: 0 0 0;
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 100px;
+  height: 36px;
+  cursor: pointer;
+  margin: 10px;
+  border: none;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font: normal 18px/34px Arial, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 1px;
+  background: rgba(0, 103, 178, 1);
+  -webkit-transition: background-color 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: background-color 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: background-color 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: background-color 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  -webkit-transform-origin: 0 0 0;
+  transform-origin: 0 0 0;
 }
 
 .btn-red {
-    background: rgba(211,0,7,1);
+  background: rgba(211, 0, 7, 1);
 }
 
 .btn-yellow {
-    background: #F8E048;
+  background: #F8E048;
 }
 
 .btn:hover {
-    background: rgba(51,137,205,1);
+  background: rgba(51, 137, 205, 1);
 }
 
 .btn-red:hover {
-    background: rgba(255,0,8,1);
+  background: rgba(255, 0, 8, 1);
 }
 
 .btn-yellow:hover {
-    background: #FBEE97;
+  background: #FBEE97;
 }
-
 
 .btn:active {
-    background: rgba(0,103,178,1);
-    -webkit-transition: none;
-    -moz-transition: none;
-    -o-transition: none;
-    transition: none;
+  background: rgba(0, 103, 178, 1);
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
 }
+
 
 /* The switch - the box around the slider */
+
 .switch {
-    position: relative;
-    display: block;
-    width: 46px;
-    height: 22px;
-    margin: 5px 0;
-    margin-left: 36px;
+  position: relative;
+  display: block;
+  width: 46px;
+  height: 22px;
+  margin: 5px 0;
+  margin-left: 36px;
 }
+
 
 /* Hide default HTML checkbox */
+
 .switch input {
-    display:none;
+  display: none;
 }
 
+
 /* The slider */
+
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #FF0800;
-    -webkit-transition: .4s;
-    transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FF0800;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 14px;
-    width: 14px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-input:checked + .slider {
-    background-color: #32CD32;
+input:checked+.slider {
+  background-color: #32CD32;
 }
 
-input:focus + .slider {
-    box-shadow: 0 0 1px #FF0800;
+input:focus+.slider {
+  box-shadow: 0 0 1px #FF0800;
 }
 
-input:checked + .slider:before {
-    -webkit-transform: translateX(24px);
-    -ms-transform: translateX(24px);
-    transform: translateX(24px);
+input:checked+.slider:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
 }
+
 
 /* Rounded sliders */
+
 .slider.round {
-    border-radius: 34px;
+  border-radius: 34px;
 }
 
 .slider.round:before {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
+
 /* Before/after text in switch */
+
 label.switch:before {
-    content: "CCW";
-    display: inline-block;
-    position: relative;
-    width: 20px;
-    height: 20px;
-    font-size: 14px;
-    right: 36px;
-    top: 2px;
+  content: "CCW";
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  right: 36px;
+  top: 2px;
 }
 
 label.switch:after {
-    content: "CW";
-    display: inline-block;
-    position: relative;
-    width: 20px;
-    height: 20px;
-    font-size: 14px;
-    left: 27px;
-    top: 2px;
+  content: "CW";
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  left: 27px;
+  top: 2px;
 }

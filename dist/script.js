@@ -31,12 +31,11 @@
  * @param {number}  start       start position number
  * @param {text}    color       color of circle
  * @param {number}  direction   1 CC; -1 CCW
- * @param {angle}   angle       circle angle
  * @param {number}  speed       speed of spining
  * @param {number}  spins       number of full spins
  * @param {font}    font        font size and family
  */
-  function Circle (x, y, r, n, start, color, direction, angle, speed, spins, font) {
+  function Circle (x, y, r, n, start, color, direction, speed, spins, font) {
     this.x = x
     this.y = y
     this.r = r
@@ -44,7 +43,7 @@
     this.n = n
     this.start = start
 
-    this.angle = angle
+    this.angle = Math.round(Math.random() * 360)
 
     this.color = color
 
@@ -133,18 +132,20 @@
   $(document).ready(function () {
     // drawing board
     var board = document.getElementById('Board'),
-      circles = [] // main circles array
+      circles = [], // main circles array
+      lockArray = [] // main lock array
     ctx = board.getContext('2d')
 
     ctx.canvas.width = boardWidth
     ctx.canvas.height = boardHeight
 
-    circles.push(new Circle(200, 200, 150, 33, 39, '#CC2115', -1, 0, 0.8, 1, '14px serif'))
-    circles.push(new Circle(200, 200, 110, 20, 19, '#297F48', 1, 0, 1.5, 1, '16px serif'))
-    circles.push(new Circle(200, 200, 80, 12, 7, '#3D66E0', -1, 0, 2, 1, '18px serif'))
-    circles.push(new Circle(200, 200, 50, 6, 1, '#0ADBFF', 1, 0, 5.1, 2, '20px serif'))
+    circles.push(new Circle(200, 200, 150, 33, 39, '#CC2115', -1, 0.8, 1, '14px serif'))
+    circles.push(new Circle(200, 200, 110, 20, 19, '#297F48', 1, 1.5, 1, '16px serif'))
+    circles.push(new Circle(200, 200, 80, 12, 7, '#3D66E0', -1, 2, 1, '18px serif'))
+    circles.push(new Circle(200, 200, 50, 6, 1, '#0ADBFF', 1, 5.1, 2, '20px serif'))
 
     drawAll(circles)
+    lockArray.push([3, 10, 30, 50], [4, 9, 29, 55])
 
     function showInfo (arr) {
       arr.forEach(function (item, i) {
@@ -164,10 +165,6 @@
     };
 
     showInfo(circles)
-
-    function triggerLock () {
-
-    }
 
     function step () {
       var cancel = 0
