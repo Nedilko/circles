@@ -158,20 +158,20 @@
     };
 
     showInfo(circles)
+    function isSpinning (item) {
+      return item.spinning
+    }
 
     function step () {
-      var cancel = 0
       for (let i = 0; i < circles.length; i++) {
-        if ((circles[i].angle < 360) && (circles[i].angle > -360)) {
-          circles[i].angle += circles[i].speed * circles[i].direction
-        } else {
-          if (circles[i].spinning === true) {
+        if (circles[i].angle === 0 || circles[i].angle === 360) {
+          if (circles[i].spinning) {
             circles[i].spinning = false
-            cancel++
           }
-        };
-
-        if (cancel === 4) {
+        } else {
+          circles[i].angle += circles[i].direction
+        }
+        if (!circles.some(isSpinning)) {
           cancelAnimationFrame(startStep)
 
           circles.forEach(function (item) {
@@ -181,8 +181,9 @@
           circles.forEach(function (item) {
             item.setAngle(0)
           })
+          break
         }
-      };
+      }
 
       ctx.fillStyle = '#FFFFFF'
       ctx.fillRect(0, 0, boardWidth, boardHeight)
@@ -191,10 +192,6 @@
 
       startStep = requestAnimationFrame(step)
     };
-
-    function isSpinning (item) {
-      return item.spinning
-    }
 
     $('#spin').click(function () {
       if (!circles.some(isSpinning)) {
