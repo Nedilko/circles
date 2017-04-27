@@ -4,7 +4,7 @@ describe('#indexOf()', function () {
     assert.equal(-1, [1, 2, 3].indexOf(5))
     assert.equal(-1, [1, 2, 3].indexOf(0))
   })
-  it('getRadians', function () {
-    assert.equal(getRadians(180), Math.PI)
-  })
+//  it('getRadians', function () {
+//    assert.equal(getRadians(180), Math.PI)
+//  })
 })
