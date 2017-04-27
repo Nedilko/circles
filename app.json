@@ -1,6 +1,7 @@
 {
   "name": "circles",
   "scripts": {
+    "test": "mocha"
   },
   "env": {
   },
@@ -13,5 +14,12 @@
     {
       "url": "heroku/nodejs"
     }
-  ]
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "mocha"
+      }
+    }
+  }
 }
