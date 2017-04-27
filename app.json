@@ -14,7 +14,12 @@
       "url": "heroku/nodejs"
     }
   ],
-  "scripts": {
-    "test": "mocha"
+  ,
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "mocha"
+      }
+    }
   }
 }
