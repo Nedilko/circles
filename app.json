@@ -1,6 +1,7 @@
 {
   "name": "circles",
   "scripts": {
+    "test": "mocha"
   },
   "env": {
   },
