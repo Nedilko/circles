@@ -13,6 +13,14 @@
         "initialized": "always",
         "uninitialized": "always"
       }],
-      "valid-jsdoc": "error"
+      "valid-jsdoc": "error",
+      "semi": ["error", "always"],
+      "no-trailing-spaces": ["error", { "skipBlankLines": true }]
+    },
+    "env": {
+        "node": true,
+        "es6": true,
+        "mocha": true,
+        "browser": true
     }
 }
