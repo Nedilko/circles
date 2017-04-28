@@ -57,6 +57,13 @@ div>textarea {
   margin-left: 4px;
 }
 
+.circle-start {
+  width: 36px;
+}
+
+.circle-speed {
+  width: 48px;
+}
 
 /* The button */
 
