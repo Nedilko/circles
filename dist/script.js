@@ -173,7 +173,7 @@
     circles.push(new Circle(200, 200, 80, 12, 7, '#3D66E0', -1, 4, '18px serif'));
     circles.push(new Circle(200, 200, 50, 6, 1, '#0ADBFF', 1, 6.1, '20px serif'));
 
-//    lockArray.push([1, 11, 30, 50], [4, 9, 29, 55], [6, 19, 25, 45]);
+    lockArray.push([1, 11, 30, 50], [4, 9, 29, 55], [6, 18, 25, 45]);
     drawAll(circles);
 
     function showInfo (arr) {
